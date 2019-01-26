@@ -1,14 +1,28 @@
 import React from 'react';
-import {FormGroup, ControlLabel, FormControl, HelpBlock, Button, Alert} from 'react-bootstrap';
+import {FormGroup, ControlLabel, FormControl, HelpBlock, InputGroup} from 'react-bootstrap';
 
-const FieldGroup = ({ id, label, help, ...props }) => {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
+export const FieldGroup = ({ id, label, help, validationState, ...props }) => {
+    return (
+        <FormGroup controlId={id} validationState={validationState}>
+            <ControlLabel>{label}</ControlLabel>
+            <FormControl {...props} />
+            {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup>
+    );
 }
 
-export default FieldGroup;
+
+
+export const InputGroupCustom = ({ id, label, help, icon, validationState, ...props }) => {
+    return (
+        <FormGroup controlId={id} validationState={validationState}>
+            <ControlLabel>{label}</ControlLabel>
+            <InputGroup>
+                <InputGroup.Addon>{icon}</InputGroup.Addon>
+                <FormControl {...props}/>
+            </InputGroup>
+            {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup>
+ 
+    );
+}
