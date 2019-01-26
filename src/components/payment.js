@@ -83,9 +83,23 @@ class Payments extends Component {
         }
     }
 
+    paymentError(){
+        if(this.props.paymentStatus.paymentError && this.state.show){
+            return(
+                <div className="payment-status">
+                    <Alert bsStyle="danger" onDismiss={this.handleDismiss} closeLabel="close">
+                        {this.props.paymentStatus.paymentError}
+                    </Alert>
+                </div>
+            );
+        }
+    }
+
+
     render() {
         return (
             <div className="container">
+                {this.paymentError()}
                 {this.paymentRecieved()}
                 <form className="payment-section">
                     <FieldGroup id="name" value={this.state.name} onChange={this.changeHandle} type="text" label="Name" placeholder="Name" help={this.state.name_help} validationState={this.state.name_state} />
