@@ -38,7 +38,7 @@ class Payments extends Component {
         if(this.props.paymentStatus.paymentId && this.state.show){
             return(
                 <div className="payment-status">
-                    <Alert bsStyle="success" onDismiss={this.handleDismiss} closeLabel>
+                    <Alert bsStyle="success" onDismiss={this.handleDismiss} closeLabel="close">
                         {this.props.paymentStatus.paymentSuccess} Your transaction id is: <strong>{this.props.paymentStatus.paymentId}</strong>
                     </Alert>
                 </div>
