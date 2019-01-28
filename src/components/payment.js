@@ -30,6 +30,7 @@ class Payments extends Component {
     }
 
     changeHandle(e){
+        this.setState({[e.target.id+'_state']: '', [e.target.id+'_help']: ''});
         this.setState({[e.target.id]: e.target.value});
     }
 
